@@ -1,2 +1,5 @@
 <h1>{{ article.title }}</h1>
 <h2>{{ article.author }}</h2>
+<time datetime="{{ article.published_at | date:'%y-%m-%d' }}">
+    {{ article.published_at | date:'%y-%m-%d' }}
+    </time>
