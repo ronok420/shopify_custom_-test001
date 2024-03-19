@@ -3,3 +3,4 @@
 <time datetime="{{ article.published_at | date:'%y-%m-%d' }}">
     {{ article.published_at | date:'%y-%m-%d' }}
     </time>
+    <img src="{{ article.image |  image_url:large   }}" alt="{{ article.image.alt }}">
