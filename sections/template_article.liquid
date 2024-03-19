@@ -3,4 +3,8 @@
 <time datetime="{{ article.published_at | date:'%y-%m-%d' }}">
     {{ article.published_at | date:'%y-%m-%d' }}
     </time>
-    <img src="{{ article.image |  image_url:medium   }}" alt="{{ article.image.alt }}">
+    
+    <img src="{{ article.image | image_url: 'thumbnail' }}" alt="{{ article.image.alt }}" width="100" height="100">
+
+
+    <div class="py-5 rounded">{{ article.content }}</div>git 
