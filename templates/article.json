@@ -9,9 +9,21 @@
         "blocks": {
           "title":{
             "type": "article_title"
+          },
+          "author":{
+            "type": "article_author"
+          },
+          "published_date":{
+            "type": "article_published_date"
+          },
+          "thumbmail":{
+            "type": "featured_image"
+          },
+          "content":{
+            "type": "article_content"
           }
         },
-        "block_order": ["title"]
+        "block_order": ["title","author","published_date","thumbmail","content"]
         
       }
     },
