@@ -1,10 +1,52 @@
 <h1>{{ article.title }}</h1>
+
+{% if section.settings.enable_author %}
 <h2>{{ article.author }}</h2>
+
+{% endif %}
+{% if section.settings.enable_published_date %}
+       <time datetime="{{ article.published_at | date:'%y-%m-%d' }}">
+          {{ article.published_at | date:'%y-%m-%d' }}
+        </time>
+
+{% endif %}
+
 <time datetime="{{ article.published_at | date:'%y-%m-%d' }}">
     {{ article.published_at | date:'%y-%m-%d' }}
     </time>
+
     <img src="{{ article.image |  image_url: width: 200  }}" alt="{{ article.image.alt }}">
    
 
 
-    <div class="py-5 rounded">{{ article.content }}</div>git 
+    <div class="py-5 rounded">{{ article.content }}</div>
+
+
+    {% schema %}
+        {
+            "name": "Template article",
+          
+            "settings": [
+                {
+                      "type": "checkbox",
+                    "id": "enable_author",
+                    "label": "enable author",
+                    "default": true,
+                    "info": "Display author name"
+                },
+                {
+                    "type": "checkbox",
+                    "id": "enable_published_date",
+                    "label": "Enable published date",
+                    "default": "true",
+                    "info": "Display published date"
+
+                }
+                
+                  
+                
+            
+            ]
+        }
+    {% endschema %}
+    
