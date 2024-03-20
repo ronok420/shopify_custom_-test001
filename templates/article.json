@@ -3,6 +3,12 @@
     "sections": {
       "template": {
         "type": "template_article",
+        "blocks": {
+          "title":{
+            "type": "template_article"
+          }
+        },
+        "block_order": ["title"],
         "settings": {
         }
       }
