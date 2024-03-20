@@ -3,6 +3,10 @@
     "sections": {
       "template": {
         "type": "template_article",
+        "settings": {
+          "enable_author": true,
+          "enable_published_date": true
+        },
         "blocks": {
           "title":{
             "type": "template_article"
@@ -18,3 +22,4 @@
   }
   
  
+
