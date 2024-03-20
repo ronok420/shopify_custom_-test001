@@ -30,9 +30,13 @@
         </div>
       
        {%  when 'featured_image' %}
-        <div class="mx-w-7xl rounded-lg bg-blue-100 mx-auto overflow-hidden ">
+        {% comment %} <div class="mx-w-7xl rounded-lg bg-blue-100 mx-auto overflow-hidden ">
              <img src="{{ article.image |  image_url: width: 200  }}" alt="{{ article.image.alt }}">
+        </div>  {% endcomment %}
+        <div class="mx-w-7xl rounded-lg bg-blue-100 mx-auto overflow-hidden flex justify-center items-center">
+            <img src="{{ article.image | image_url: width: 200 }}" alt="{{ article.image.alt }}">
         </div>
+        
 
           
 
