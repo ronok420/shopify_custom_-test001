@@ -3,8 +3,6 @@
     "sections": {
       "template": {
         "type": "template_article",
-        "settings": {
-        },
         "blocks": {
           "title":{
             "type": "template_article"
