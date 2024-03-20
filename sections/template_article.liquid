@@ -2,14 +2,14 @@
 
     {%  case block.type %} 
       {%  when 'article_title' %}
-        <h1>{{ article.title }}</h1>
+        <h1 class="font-bold text-2xl">{{ article.title }}</h1>
       {%  when 'article_author' %}
         {% if section.settings.enable_author %}
-            <h2>{{ article.author }}</h2>
+            <h2 class="font-bold text-2xl">{{ article.author }}</h2>
         {% endif %}
        {%  when 'article_published_date' %}      
        {% if section.settings.enable_published_date %}
-            <time datetime="{{ article.published_at | date:'%y-%m-%d' }}">
+            <time class="font-bold text-2xl" datetime="{{ article.published_at | date:'%y-%m-%d' }}">
             {{ article.published_at | date:'%y-%m-%d' }}
             </time>
        {% endif %}
