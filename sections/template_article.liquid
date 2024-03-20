@@ -11,9 +11,6 @@
 
 {% endif %}
 
-<time datetime="{{ article.published_at | date:'%y-%m-%d' }}">
-    {{ article.published_at | date:'%y-%m-%d' }}
-    </time>
 
     <img src="{{ article.image |  image_url: width: 200  }}" alt="{{ article.image.alt }}">
    
@@ -28,7 +25,7 @@
           
             "settings": [
                 {
-                      "type": "checkbox",
+                    "type": "checkbox",
                     "id": "enable_author",
                     "label": "enable author",
                     "default": true,
@@ -38,7 +35,7 @@
                     "type": "checkbox",
                     "id": "enable_published_date",
                     "label": "Enable published date",
-                    "default": "true",
+                    "default": true,
                     "info": "Display published date"
 
                 }
