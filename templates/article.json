@@ -23,7 +23,7 @@
             "type": "article_content"
           }
         },
-        "block_order": ["title","author","published_date","thumbmail","content"]
+        "block_order": ["thumbmail","title","author","published_date","content"]
         
       }
     },
