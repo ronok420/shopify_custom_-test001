@@ -9,7 +9,7 @@
              <h1 class="font-medium text-5xl ">{{ article.title }}</h1>
         </div>
        </div>
-       x
+       
       {%  when 'article_author' %}
         <div class="flex items-center justify-center">
             <div class="max-w-7xl text-center">
@@ -24,7 +24,8 @@
             <div class="max-w-7xl text-center">
                  {% if section.settings.enable_published_date %}
                     <time class="font-bold text-2xl" datetime="{{ article.published_at | date:'%y-%m-%d' }}">
-                    {{ article.published_at | date:'%y-%m-%d' }}
+                    {% comment %} {{ article.published_at | date:'%y-%m-%d' }} {% endcomment %}
+                    {{ article.published_at | date: format:'on_date' }}
                     </time>
            {% endif %}
             </div>
@@ -34,7 +35,7 @@
         {% comment %} <div class="mx-w-7xl rounded-lg bg-blue-100 mx-auto overflow-hidden ">
              <img src="{{ article.image |  image_url: width: 200  }}" alt="{{ article.image.alt }}">
         </div>  {% endcomment %}
-        <div class="mx-w-7xl rounded-lg bg-blue-100 mx-auto overflow-hidden flex justify-center items-center my-4">
+        <div class="mx-w-7xl rounded-lg bg-blue-100 mx-auto overflow-hidden flex justify-center items-center my-4 ">
             {% if article.image != blank %}
                 <img class="w-full h-96 object-cover object-center" src="{{ article.image | image_url: width: 200 }}" alt="{{ article.image.alt }}">
             {%  else %}
