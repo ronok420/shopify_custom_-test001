@@ -59,11 +59,9 @@
 
 {% if blog.comments_enabled? %}
    <div id="comments" class="my-8">
-    {% if article.comments_count>0 %}
-        
-     {% else %}
+    {% if article.comments_count>0 %}   
+    {% else %}
        there are no comment
-
     {% endif %}    
    </div>
 {% endif %}
