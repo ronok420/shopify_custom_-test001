@@ -60,6 +60,18 @@
 {% if blog.comments_enabled? %}
    <div id="comments" class="my-8">
     {% if article.comments_count>0 %}   
+        <div class="flex-1 items-center justify-center mx-auto max-w-4xl px-4">
+            <h1 class="text-lg mb-4 font-medium">See all the comments</h1>
+            {%  paginate article.comments by 5  %}
+                {% for comment in article.comments %}
+                    <div class="flex-1 border my-4 mx-4 py-2 sm:px-6 sm:py-4 leading-relaxed">
+                        <span class="comment-author">{{ comment.author }}</span> <span class="text-xs text-gray-400">{{ comment.created_at |  date: format:'default' }}</span>
+                        <p class="text-sm">{{ comment.content }}</p>
+                    </div>
+        
+                {% endfor %}
+            {% endpaginate %} 
+        </div>
     {% else %}
        there are no comment
     {% endif %}    
