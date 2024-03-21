@@ -82,6 +82,20 @@
 
                 </div>
             </div>
+            <div class="px-1 md:flex mb-3">
+                <div class="md:w-full px-3">
+                    <label for="comment_content" class="text-gray-700 font-medium uppercase text-xs mb-2"></label>
+                    <textarea class="w-full text-gray-700 resize-none h-20 py-2 px-3 focus:outline-none border" name="comment[body]" id="comment_content" cols="30" rows="10" required></textarea>
+                </div>
+            </div>
+            <div class="px-1 md:flex mb-3">
+                <div class="md:w-full px-3">
+                  <input class="w-full cursor-pointer px-4 py-2 border text-base font-medium text-white bg-gray-900 hover:bg-gray-500" type="submit" value="post comment">
+                </div>
+            </div>
+
+
+
         </div>
     {% endform %}
    </div>
