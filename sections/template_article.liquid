@@ -12,7 +12,7 @@
        
       {%  when 'article_author' %}
         <div class="flex items-center justify-center">
-            <div class="max-w-7xl text-center"  itemscope itemtype="https://schema.org/BlogPosting">
+            <div class="max-w-7xl text-center"  itemscope itemtype="http://schema.org/Person">
                 {% if section.settings.enable_author %}
                     <h2 class="font-bold text-2xl" itemprop="author">{{ article.author }}</h2>
                 {% endif %}
