@@ -1,4 +1,6 @@
 {% if pagination.pages > 0 %}
-    hello world
-    
+    <nav role="navigation" class="flex items-center my-8">
+        <a href="{{ pagination.previous.url }}">{{ pagination.previous.title }}</a>
+        <a href="{{ pagination.next.url }}">{{ pagination.next.title }}</a>
+    </nav>  
 {% endif %}
