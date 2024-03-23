@@ -1,6 +1,22 @@
 {% if pagination.pages > 0 %}
     <nav role="navigation" class="flex items-center my-8">
-        <a href="{{ pagination.previous.url }}">{{ pagination.previous.title }}</a>
-        <a href="{{ pagination.next.url }}">{{ pagination.next.title }}</a>
+        {% if pagination.previous %}
+            <a class="border border-gray-600 text-gray-600 hover:bg-gray-600 hover:text-white px-8 py-3 mx-1 rounded-sm font-medium" href="{{ pagination.previous.url }}">{{ pagination.previous.title }}</a>    
+        {% endif %}
+        {% for part in pagination.parts %}
+            {% if part.is_link %}
+                <a class="border border-gray-700 text-gray-600 hover:bg-gray-600 hover:text-white px-9 py-3 mx-6 rounded-sm font-medium" href="{{ part.url }}">{{ part.title }}</a> 
+                
+            {% else %}
+                <span class="border border-gray-700 text-gray-600 hover:bg-gray-600 hover:text-white px-9 py-3 mx-6 rounded-sm font-medium">{{ part.title }}</span>
+
+                
+            {% endif %}
+            
+        {% endfor %}
+        {% if pagination.next %}
+            <a class="border border-gray-600 text-gray-600 hover:bg-gray-600 hover:text-white px-8 py-3 mx-1 rounded-sm font-medium" href="{{ pagination.next.url }}">{{ pagination.next.title }}</a>
+            
+        {% endif %}
     </nav>  
 {% endif %}
