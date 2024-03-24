@@ -9,15 +9,20 @@
     </div> {% endcomment %}
 
 
-   <div class="p-4 flex">  
-    <div class="max-w-6xl flex items-center justify-between my-5"> <!-- Updated classes -->
-        <h1 class="text-3xl">Your cart</h1>
-        <div class="flex items-center"> <!-- New div for spacing -->
-            <div class="mr-6">
-                <a href="{{ routes.all_products_collection_url }}" class="text-blue-600 hover:text-blue-800 font-medium underline">Continue shopping</a>
+ 
+    <div class="p-4">
+    <div class="max-w-6xl flex flex-col my-10 mx-auto">
+        <div class="flex items-end justify-between my-5">
+            <div>
+                <h1 class="text-3xl">Your cart</h1>
+
             </div>
-        </div>
-    </div>
+            <div>
+                <a href="{{ routes.all_products_collection_url }}" class="text-blue-600 hover:text-blue-800 font-medium underline">Continue shopping</a>
+
+            </div>
+        </div> 
+    </div> 
 </div>
 
     
