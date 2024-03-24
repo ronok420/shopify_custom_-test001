@@ -11,12 +11,13 @@
 
     <div class="p-4 flex">  
         <div class="max-w-6xl flex flex-col my-10 mx-auto">
-            <div class="flex items-end justify-between my-5">
-                <h1 class="text-3xl">Your cart</h1>
+            <div class="flex flex-col md:flex-row items-center justify-between my-5"> <!-- Adjusted classes -->
+                <h1 class="text-3xl md:text-4xl">Your cart</h1> <!-- Adjusted text size for responsiveness -->
                 <a href="{{ routes.all_products_collection_url }}" class="text-blue-600 hover:text-blue-800 font-medium underline">Continue shopping</a>
             </div>
-  </div>
-</div>
+        </div>
+    </div>
+    
 
 {% else %}
     <div class="max-w-6xl h-60 my-4 mx-auto flex items-center justify-center">
