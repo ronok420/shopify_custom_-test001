@@ -1,14 +1,15 @@
 {
-    "sections": {
-      "featured-collection": {
-        "type": "featured-collection",
-        "settings": {
-            "featured-collection":"all"
-        }
+  "sections": {
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Featured Collection",
+        "featured_collection": "all-winter-collection",
+        "number_of_products_to_show": 6
       }
-    },
-    "order": [
-      "featured-collection"
-    ]
-  }
-  
+    }
+  },
+  "order": [
+    "featured-collection"
+  ]
+}
