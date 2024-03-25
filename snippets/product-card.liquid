@@ -3,7 +3,7 @@
       <a href="{{ product.url }}">
         {% if product.featured_image %}
           <div class="h-80 overflow-hidden">
-            <img src="{{ product.featured_image | img_url: 'medium'  }}" alt="{{ product.featured_image.alt }}">           
+            <img class="w-full h-full object-cover transition duration-700 ease-in-out hover:scale-105 " src="{{ product.featured_image | img_url: 'medium'  }}" alt="{{ product.featured_image.alt }}">           
 
           </div>
             {%  else %}
