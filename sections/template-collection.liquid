@@ -1,14 +1,11 @@
-{% paginate collection.products by 12 %}
-    {% for product in collection.products %}
-        {% if product.featured_image %}
-            <img src="{{ product.featured_image |  | asset_img_url: 'medium'  }}" alt="{{ product.featured_image.alt }}">
-           
-            
-        {% endif %}
-        <a href="{{ product.url }}">{{ product.title }}</a>
-        {% else %}
-            <p>there are no produc</p>
-        
-    {% endfor %}
-    {% render 'pagination', pagination:paginate %}
+{% paginate collection.products by 5 %}
+  {% for product in collection.products %}
+    {% if product.featured_image %}
+      <img src="{{ product.featured_image | asset_img_url: 'medium'  }}" alt="{{ product.featured_image.alt }}">
+    {% endif %}
+    <a href="{{ product.url }}">{{ product.title }}</a>
+  {% else %}
+    <p>there are no produc</p>
+  {% endfor %}
+  {% render 'pagination', pagination: paginate %}
 {% endpaginate %}
