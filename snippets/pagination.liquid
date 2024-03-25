@@ -5,10 +5,10 @@
         {% endif %}
         {% for part in pagination.parts %}
             {% if part.is_link %}
-                <a class="border border-gray-700 text-gray-600 hover:bg-gray-600 hover:text-white px-9 py-3 mx-6 rounded-sm font-medium" href="{{ part.url }}">{{ part.title }}</a> 
+                <a class="border border-gray-700 text-gray-600 hover:bg-gray-600 hover:text-white px-6 py-3 mx-6 rounded-sm font-medium" href="{{ part.url }}">{{ part.title }}</a> 
                 
             {% else %}
-                <span class="border border-gray-700 text-gray-600 hover:bg-gray-600 hover:text-white px-9 py-3 mx-6 rounded-sm font-medium">{{ part.title }}</span>
+                <span class="border border-gray-700 text-gray-600 hover:bg-gray-600 hover:text-white px-6 py-3 mx-6 rounded-sm font-medium">{{ part.title }}</span>
 
                 
             {% endif %}
