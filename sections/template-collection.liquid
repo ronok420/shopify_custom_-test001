@@ -4,12 +4,22 @@
     <div class="max-w-6xl mx-auto">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         {% for product in collection.products %}
-          {% if product.featured_image %}
-            <img src="{{ product.featured_image | img_url: 'medium'  }}" alt="{{ product.featured_image.alt }}">
-          {% endif %}
-          <span>{{ product.vendor }}</span>
-          <a href="{{ product.url }}">{{ product.title }}</a>
-          <p>{{ product.price | money }}</p>
+          <div class="py-6 px-3">
+            <div class="border bg-white shadow-lg rounded-lg overflow-hidden">
+              <a href="{{ product.url }}">
+                {% if product.featured_image %}
+                  <div>
+                    <img src="{{ product.featured_image | img_url: 'medium'  }}" alt="{{ product.featured_image.alt }}">
+                  </div>
+                {% endif %}
+              </a>
+
+              <span class="text-sm">{{ product.vendor }}</span>
+              <a class="text-gray-700 uppercase font-medium" href="{{ product.url }}">{{ product.title }}</a>
+              <p class="text-gray-500">{{ product.price | money }}</p>
+            </div>
+          </div>
+
         {% else %}
           <p>there are no produc</p>
         {% endfor %}
