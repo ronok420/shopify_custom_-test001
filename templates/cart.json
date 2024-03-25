@@ -3,6 +3,11 @@
     "template": {
       "type": "template_cart",
       "blocks": {
+        "checkout-button": {
+          "type": "checkout_button",
+          "settings": {
+          }
+        },
         "subtotal": {
           "type": "subtotal",
           "settings": {
@@ -12,31 +17,14 @@
           "type": "update_button",
           "settings": {
           }
-        },
-        "checkout-button": {
-          "type": "checkout_button",
-          "settings": {
-           
-        }
-        
         }
       },
       "block_order": [
+        "checkout-button",
         "subtotal",
-        "update-button",
-        "checkout-button"
+        "update-button"
       ],
       "settings": {
-        "quantity_input_type": "number",
-        "display_options": {
-            "show_images": true,
-            "show_descriptions": false
-        },
-        "discount_codes": {
-            "allow_discount_codes": true
-        },
-        "tax_display": "inclusive",
-        "empty_cart_message": "Your cart is currently empty."
       }
     }
   },
