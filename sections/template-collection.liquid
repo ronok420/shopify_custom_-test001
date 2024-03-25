@@ -1,15 +1,22 @@
-{% paginate collection.products by 6 %}
-    {% for product in collection.products %}
-        {% if product.featured_image %}
-            <img src="{{ product.featured_image | img_url: 'medium'  }}" alt="{{ product.featured_image.alt }}">           
-            
-        {% endif %}
-        <span>{{ product.vendor }}</span>
-        <a href="{{ product.url }}">{{ product.title }}</a>
-        <p>{{ product.price |  money }}</p>
-        {% else %}
-            <p>there are no produc</p>
+
+<div class="px-4 py-8">
+  {% paginate collection.products by 6 %}
+    <h1 class="text-3xl text-center">{{ collection.title }}</h1>
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {% for product in collection.products %}
         
-    {% endfor %}
-    {% render 'pagination', pagination:paginate %}
-{% endpaginate %}
+        {% render 'product-card', product:product %}
+          {% else %}
+              <p>there are no produc</p>
+          
+      {% endfor %}
+
+      </div>
+
+    </div>
+      
+      {% render 'pagination', pagination:paginate %}
+  {% endpaginate %}
+
+</div>
