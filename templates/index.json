@@ -3,6 +3,7 @@
       "featured-collection": {
         "type": "featured-collection",
         "settings": {
+            "featured-collection":"all"
         }
       }
     },
