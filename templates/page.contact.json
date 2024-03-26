@@ -1,11 +1,19 @@
 {
-    "sections": {
-        "template": {
-            "type": "template-page"
-        },
-        "contact-form": {
-            "type": "contact-form"
-        }
+  "sections": {
+    "template": {
+      "type": "template-page",
+      "settings": {
+      }
     },
-    "order": ["template", "contact-form"]
+    "contact-form": {
+      "type": "contact-form",
+      "settings": {
+        "title": "write  you message"
+      }
+    }
+  },
+  "order": [
+    "template",
+    "contact-form"
+  ]
 }
