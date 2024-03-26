@@ -1,11 +1,19 @@
 {
-    "sections": {
-        "template":{
-            "type": "template-product"
-           
-        }
+  "sections": {
+    "template": {
+      "type": "template-product",
+      "settings": {
+      }
     },
-    "order": [
-        "template"
-    ]
+    "contact_form_T76k7F": {
+      "type": "contact-form",
+      "settings": {
+        "title": ""
+      }
+    }
+  },
+  "order": [
+    "template",
+    "contact_form_T76k7F"
+  ]
 }
