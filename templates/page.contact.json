@@ -1,13 +1,16 @@
 {
     "sections": {
-        "template":{
-            "type": "contact-form"
+        "template": {
+            "type": "contact-form",
+            "style": {
+                "submitButton": {
+                    "backgroundColor": "black",
+                    "color": "white"
+                }
+            }
         }
     },
     "order": [
         "template"
     ]
 }
-
-
-
