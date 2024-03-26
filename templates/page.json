@@ -1,13 +1,13 @@
 {
     "sections": {
-      "template": {
-        "type": "template-page",
-        "settings": {
+        "template":{
+            "type": "template-page"
         }
-      }
     },
     "order": [
-      "template"
+        "template"
     ]
-  }
-  
+}
+
+
+
