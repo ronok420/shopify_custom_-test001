@@ -2,6 +2,6 @@
     {% when 'image' %}
         <img src="{{ media | img_url: 'large' }}" alt="{{ media.preview_image.alt }}" class="w-full h-full object-cover">
     {% else %}
-    <h1>nothing found</h1>
+      <h1>nothing found</h1>
         
 {% endcase %}
