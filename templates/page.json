@@ -4,9 +4,16 @@
       "type": "template-page",
       "settings": {
       }
+    },
+    "contact_form_fbn9ez": {
+      "type": "contact-form",
+      "settings": {
+        "title": ""
+      }
     }
   },
   "order": [
-    "template"
+    "template",
+    "contact_form_fbn9ez"
   ]
 }
