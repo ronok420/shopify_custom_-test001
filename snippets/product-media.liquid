@@ -1,6 +1,13 @@
+ <style>
+#p-imag img{
+  height: 300px;
+
+}
+ </style>
+ 
  {% case media.media_type %}
     {% when 'image' %}
-        <img src="{{ media | img_url: 'medium' }}" alt="{{ media.preview_image.alt }}" class="w-full h-full object-cover">
+        <img src="{{ media | img_url: 'medium' }}" alt="{{ media.preview_image.alt }}" class="w-full h-full object-cover" id="p-imag">
     {%  when 'external_video' %} 
       {{ media | external_video_tag: class: 'w-full h-80 object-cover' }}
     {% else %}
