@@ -5,15 +5,15 @@
       "settings": {
       }
     },
-    "contact_form_T76k7F": {
+    "contact_form": {
       "type": "contact-form",
       "settings": {
-        "title": ""
+       
       }
     }
   },
   "order": [
     "template",
-    "contact_form_T76k7F"
+    "contact_form"
   ]
 }
