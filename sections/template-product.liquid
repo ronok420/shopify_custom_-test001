@@ -4,6 +4,30 @@
   href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 />
 
+{% comment %} <style>
+    .swiper-button-prev, .swiper-button-next { color: black; top: auto !important; height: 20px; }
+    .swiper-button-prev::after, .swiper-button-next::after { font-size: 20px; }
+    .swiper-pagination { color: black; bottom: 0 !important; }
+    .swiper-pagination-bullet-active { background: black !important; }
+    .product--information { height: fit-content; }
+</style> {% endcomment %}
+ <style>
+    .swiper-container { position: relative; }
+    .swiper-button-prev, .swiper-button-next { 
+        color: black; 
+        top: auto !important; 
+        /* height: 20px; */
+        position: absolute; 
+        bottom: -20px;      /* Adjust as needed */ 
+    }
+    .swiper-button-prev::after, .swiper-button-next::after { font-size: 30px; }
+    .swiper-pagination { color: black; bottom: 0 !important; }
+    .swiper-pagination-bullet-active { background: black !important; }
+    .product--information { height: fit-content; }
+</style> 
+
+
+
 
 
 
@@ -21,8 +45,8 @@
                 {% endfor %}
             </div>
 
-             <div class="md:hidden lg:hidden">
-                <div class="swiper h-94">
+             <div class="md:hidden lg:hidden ">
+                <div class="swiper h-94 sm:mb-5">
                     <div class="swiper-wrapper">
                         {% for media in product.media %}
                             <div class="swiper-slide">
@@ -33,17 +57,18 @@
                         {% endfor %}
                     </div>
 
-                    <div class="swiper-pagination"></div>
-
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+                   
                 </div>
+                <div class="swiper-pagination"></div>
+
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div> 
 
 
 
         </div>
-        <div class="product--information">hello there    </div>
+        <div class="product--information mt-20 md:mt-0">hello there    </div>
     </div>
 </div> 
 
