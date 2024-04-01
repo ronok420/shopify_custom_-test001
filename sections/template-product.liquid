@@ -1,32 +1,63 @@
-{% comment %} <div class="max-w-6xl mx-auto my-8">
-    <div class="flex items-center justify-between  gap-3">
-        <div class=" bg-slate-400">
-            <h2>asjdfkl</h2>
-           <div class="border rounded-lg border-black bg-amber-400 w-full">
-           <h1 class="text-4xl ">first div </h1>
-          
-           </div>
-        </div>
-        <div>
-            <div class=" bg-green-500">
-                <h1 class="text-7xl">second div</h1>
-            </div>
 
-        </div>
-    </div>
-</div> 
-{% endcomment %}
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+
+
+
+
+
+
 <div class="max-w-6xl mx-auto my-8">
-    <div class="grid grid-cols-2  gap-3">
+    {% comment %} <div class="grid grid-cols-1  md:grid-cols-2  lg:grid-cols-2 xl:grid-cols-2 gap-3"> {% endcomment %}
+        <div class=" md:grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-3">
         <div class="product--medias">
-            <div class="block">
+            <div class="hidden md:block lg:block xl:block">
                 {% for media in product.media %}
                     <div class="h-80 overflow-hidden p-2">
                         {% render 'product-media', media: media %} 
                     </div>
                 {% endfor %}
             </div>
+
+             <div class="md:hidden lg:hidden">
+                <div class="swiper h-94">
+                    <div class="swiper-wrapper">
+                        {% for media in product.media %}
+                            <div class="swiper-slide">
+                                <div class="h-[100vw] overflow-hidden p-2">
+                                    {% render 'product-media', media: media %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="swiper-pagination"></div>
+
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div> 
+
+
+
         </div>
         <div class="product--information">hello there    </div>
     </div>
 </div> 
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+    const swiper = new Swiper('.swiper', {
+        direction: 'horizontal',
+        pagination: {
+            el: '.swiper-pagination',
+        },
+        navigation: {
+            prevEl: '.swiper-button-prev', // Previous button class
+            nextEl: '.swiper-button-next', // Next button class
+        },
+    });
+</script>

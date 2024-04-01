@@ -1,1 +1,2 @@
 npx tailwindcss -i ./src/tailwind.css -o ./assets/application.css --watch
+npx tailwindcss -o ./assets/application.css 
