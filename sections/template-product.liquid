@@ -89,71 +89,95 @@
             {% assign product_price = product.selected_or_first_available_variant %} 
              {% form 'product', product %}
                 <input type="hidden" name="id" value="{{ product_price.id }}">
-                <div class="my-3">
-                    <span class="text-sm text-gray-500">{{ product.vendor }}</span>
-                </div>
-                <div class="my-3">
-                    <h1 class="text-3xl text-gray-900">{{ product.title }}</h1>
-                </div>
-                <div class="my-3">
-                     {% comment %} {% assign product_price = product.selected_or_first_available_variant %}  {% endcomment %}
-                     <span class="text-base text-gray-500 line-through">{{ product_price.compare_at_price |  money }}</span>
-                     <span class="text-lg text-gray-900">{{ product_price.price |  money }}</span>
-                     {% if  product_price.price < product_price.compare_at_price %}
-                        <span class="px-5 py-1 text-sm font-bold bg-red-500 rounded-full text-white mx-4">sale</span>
-                        
-                     {% endif %}
-                </div>
-                <div class="my-3">
-                    {% unless product.has_only_default_variant %}
-                        <div data-url="{{ product.url }}" data-section="{{ section.id }}">
-                            {% for option in product.options_with_values %}
-                                <label for="Option-{{ section.id }}-{{ forloop.index0 }}">{{ option.name }}</label>
-                                <div class="my-2">
-                                    <select name="options[{{ option.name }}]" id="Option-{{ section.id }}-{{ forloop.index0 }}" class="w-full border py-1 px-3">
-                                        {% for value in option.values %}
-                                            <option value="{{ value |  escape }}"
-                                            {% if option.selected_value == value %}
-                                                selected="selected"
-                                                
-                                            {% endif %}
-                                            >{{ value }}</option>
-                                            
-                                        {% endfor %}
-                                    </select>
-                                </div>
-                                
-                            {% endfor %}
-                        </div>
-                        
-                    {% endunless %}
-                </div>
 
-                <div class="my-3">
-                    <label for="Quantity-{{ section.id }}">Quantity</label>
-                    <div class="my-2">
-                        <input type="number" name="quantity" id="Quantity-{{ section.id }}" value="1" min="1" class="w-full border px-3 py-3 ">
-                    </div>
-                </div>
-                <div class="my-3">
-                   <p class="text-gray-700">{{ product.description }}</p>
-                </div>
-                <div class="my-3">
+                {% for block in section.blocks %}
+                    {% case block.type %}
+                        {% when 'vendor' %} 
+                            <div class="my-3">
+                                <span class="text-sm text-gray-500">{{ product.vendor }}</span>
+                            </div>
+            
+                        {% when 'title' %}
+                            <div class="my-3">
+                                <h1 class="text-3xl text-gray-900">{{ product.title }}</h1>
+                            </div>
+                        {% when 'price' %}       
+                            <div class="my-3">
+                                
+                                    <span class="text-base text-gray-500 line-through">{{ product_price.compare_at_price |  money }}</span>
+                                    <span class="text-lg text-gray-900">{{ product_price.price |  money }}</span>
+                                    {% if  product_price.price < product_price.compare_at_price %}
+                                    <span class="px-5 py-1 text-sm font-bold bg-red-500 rounded-full text-white mx-4">sale</span>
+                                    
+                                    {% endif %}
+                            </div>
+                        {% when 'variant_selector' %}   
+                                <div class="my-3">
+                                    {% unless product.has_only_default_variant %}
+                                        <div data-url="{{ product.url }}" data-section="{{ section.id }}">
+                                            {% for option in product.options_with_values %}
+                                                <label for="Option-{{ section.id }}-{{ forloop.index0 }}">{{ option.name }}</label>
+                                                <div class="my-2">
+                                                    <select name="options[{{ option.name }}]" id="Option-{{ section.id }}-{{ forloop.index0 }}" class="w-full border py-1 px-3">
+                                                        {% for value in option.values %}
+                                                            <option value="{{ value |  escape }}"
+                                                            {% if option.selected_value == value %}
+                                                                selected="selected"
+                                                                
+                                                            {% endif %}
+                                                            >{{ value }}</option>
+                                                            
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                                
+                                            {% endfor %}
+                                        </div>
+                                        
+                                    {% endunless %}
+                                </div>
+                        {% when 'quantity' %}
+                            <div class="my-3">
+                                <label for="Quantity-{{ section.id }}">Quantity</label>
+                                <div class="my-2">
+                                    <input type="number" name="quantity" id="Quantity-{{ section.id }}" value="1" min="1" class="w-full border px-3 py-3 ">
+                                </div>
+                            </div>
+                        {% when 'description' %}
+                                        
+                            <div class="my-3">
+                                <p class="text-gray-700">{{ product.description }}</p>
+                            </div>
+                        {% when 'checkout_buttons' %}
+                            <div class="my-3">
                   
-                <button id="custom-button" type="submit" name="add" class="w-full px-6 py-4  rounded-md my-2"  
-                {% if product_price.available == false %}
-                    disabled       
-                {% endif %}>
-                   
+                                    <button id="custom-button" type="submit" name="add" class="w-full px-6 py-4  rounded-md my-2"  
+                                    {% if product_price.available == false %}
+                                        disabled       
+                                    {% endif %}>
+                                    
+                                        
+                                        {% if product_price == false %}
+                                            Sold Out
+                                        {% else %}
+                                            Add To Cart   
+                                            
+                                        {% endif %}
+                                    </button>
+                            </div>
+
+                            
+                        {% else %}
+                            
+                    {% endcase %}
                     
-                    {% if product_price == false %}
-                        Sold Out
-                     {% else %}
-                          Add To Cart   
-                        
-                    {% endif %}
-                </button>
-                </div>
+                {% endfor %}
+             
+             
+             
+
+             
+               
                 
              {% endform %}
         </div>
