@@ -12,8 +12,28 @@
       {{ media | model_viewer_tag }} 
     {%  else %} 
       {{ media | media_tag }}  
-    {% else %}
+
            
         
 {% endcase %}    
                    
+
+{% comment %} {
+  "sections": {
+    "template": {
+      "type": "template-product",
+      "settings": {
+      }
+    },
+    "contact_form": {
+      "type": "contact-form",
+      "settings": {
+       
+      }
+    }
+  },
+  "order": [
+    "template",
+    "contact_form"
+  ]
+} {% endcomment %}
