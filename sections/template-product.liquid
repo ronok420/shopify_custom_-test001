@@ -1,8 +1,7 @@
-
 <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-/>
+>
 
 <style>
     .swiper-button-prev, .swiper-button-next { color: black; top: auto !important; height: 90px; }
@@ -50,32 +49,30 @@
 
 
 <div class="max-w-6xl mx-auto my-8">
-    {% comment %} <div class="grid grid-cols-1  md:grid-cols-2  lg:grid-cols-2 xl:grid-cols-2 gap-3"> {% endcomment %}
-        <div class=" md:grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-3">
-        <div class="product--medias">
-            <div class="hidden md:block lg:block xl:block">
-                {% for media in product.media %}
-                    <div class="h-80 overflow-hidden p-2">
-                        {% render 'product-media', media: media %} 
-                    </div>
-                {% endfor %}
-            </div>
+  {% comment %} <div class="grid grid-cols-1  md:grid-cols-2  lg:grid-cols-2 xl:grid-cols-2 gap-3"> {% endcomment %}
+  <div class=" md:grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-3">
+    <div class="product--medias">
+      <div class="hidden md:block lg:block xl:block">
+        {% for media in product.media %}
+          <div class="h-80 overflow-hidden p-2">
+            {% render 'product-media', media: media %}
+          </div>
+        {% endfor %}
+      </div>
 
-             <div class="md:hidden lg:hidden ">
-                <div class="swiper h-94 sm:mb-5">
-                    <div class="swiper-wrapper">
-                        {% for media in product.media %}
-                            <div class="swiper-slide">
-                                <div class="h-[100vw] overflow-hidden p-2">
-                                    {% render 'product-media', media: media %}
-                                </div>
-                            </div>
-                        {% endfor %}
-                    </div>
-
-                   
+      <div class="md:hidden lg:hidden ">
+        <div class="swiper h-94 sm:mb-5">
+          <div class="swiper-wrapper">
+            {% for media in product.media %}
+              <div class="swiper-slide">
+                <div class="h-[100vw] overflow-hidden p-2">
+                  {% render 'product-media', media: media %}
                 </div>
-                <div class="swiper-pagination"></div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
 
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
@@ -162,14 +159,14 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <script>
-    const swiper = new Swiper('.swiper', {
-        direction: 'horizontal',
-        pagination: {
-            el: '.swiper-pagination',
-        },
-        navigation: {
-            prevEl: '.swiper-button-prev', // Previous button class
-            nextEl: '.swiper-button-next', // Next button class
-        },
-    });
+  const swiper = new Swiper('.swiper', {
+      direction: 'horizontal',
+      pagination: {
+          el: '.swiper-pagination',
+      },
+      navigation: {
+          prevEl: '.swiper-button-prev', // Previous button class
+          nextEl: '.swiper-button-next', // Next button class
+      },
+  });
 </script>
