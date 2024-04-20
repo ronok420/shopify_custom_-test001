@@ -279,29 +279,59 @@
     }
   });
 </script>
-
 <script>
-  const query = `{
-    products(first: 100) {
-      edges {
-        node {
-          id
-          vendor
+  const query2 = `{
+    shop { 
+    	name 
+        primaryDomain { 
+        	url 
+            host 
+        } 
+    } 
+}`; 
+const query3 = `{ products(first: 20) { edges { node { title description images(first: 1) { edges { node { altText transformedSrc(maxWidth: 400, maxHeight: 400) } } } } } } }`; 
+const query = `{
+  products(first: 100) {
+    edges {
+      node {
+        id
+        vendor
+        variants(first: 10) {
+          edges {
+            node {
+              id
+              price {
+                amount
+                currencyCode
+              }
+            }
+          }
         }
       }
     }
-  }`;
+  }
+}`;
+
 
   function apiCall(query) { 
     return fetch('https://firstdawn-theme.myshopify.com/api/graphql.json', {
       method: 'POST', 
       headers: { 
         'Content-Type': 'application/graphql', 
-        'X-Shopify-Storefront-Access-Token': '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' 
+        // 'X-Shopify-Storefront-Access-Token': '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' 
+        'X-Shopify-Storefront-Access-Token': '217e71d80ea505b5bf0ef304a17feb7e' 
       },
       body: query
     })
-    .then(response => response.json()); 
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .catch(error => {
+      console.error('There was a problem with the API call:', error);
+    });
   } 
 
   apiCall(query).then(response => { 
